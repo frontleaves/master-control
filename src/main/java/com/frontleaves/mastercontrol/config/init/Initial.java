@@ -1,7 +1,7 @@
 /*
  * ***************************************************************************************
  * company: FrontLeaves Technology Co,.Ltd.
- * author: XiaoLFeng(https://www.x-lf.com) | FLASHLACK |
+ * author: XiaoLFeng(https://www.x-lf.com) | FLASHLACK | fanfan187
  * about:
  *   The project contains the source code of com.frontleaves.master-control.
  *   All source code for this project is licensed under the Apache License 2.0 open source
@@ -21,30 +21,32 @@
  * ***************************************************************************************
  */
 
-package com.frontleaves.mastercontrol;
+package com.frontleaves.mastercontrol.config.init;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * 应用程序的主类
+ * 系统初始化
  * <p>
- * 该类负责启动 Spring Boot 应用程序, 通过调用 SpringApplication.run() 方法启动应用程序;
- * 该类使用 {@code @SpringBootApplication} 注解标记;
+ * 该类用于系统初始化;
+ * 该类使用 {@code @Configuration} 注解标记;
  *
  * @version v1.0.0
  * @since 2024/09/10
  * @author xiao_lfeng
  */
-@EnableAsync
-@EnableScheduling
-@SpringBootApplication
-public class MasterControlApplication {
+@Slf4j
+@Configuration
+@RequiredArgsConstructor
+public class Initial {
 
-    public static void main(String[] args) {
-        SpringApplication.run(MasterControlApplication.class, args);
+
+    @PostConstruct
+    public void init() {
+        log.info("[INIT] 系统初始化");
+
     }
 }

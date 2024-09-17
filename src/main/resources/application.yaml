@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  application:
+    name: master-control
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+logging:
+  file:
+    path: "./.logs"
+  level:
+    root: error
